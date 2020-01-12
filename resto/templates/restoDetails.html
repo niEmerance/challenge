@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>Restaurants Details</h1>
+
+<div style="padding-top: 20px;padding-left: 30px">
+    <div class="row">
+        {% for res in restaurant %}
+        <div>
+
+            <!-- <div class="col-md-3"></div> -->
+            <div class="col-md-6" style=" padding:10px">
+                <h2 style="font-family: serif; color:rgba(0,0,62,0.9);text-align: center">
+                        {{res.resto_name}}
+                </h2>
+                <img src="{{res.resto_image.url}}" class="img-responsive" alt="" height=160px width=320px>
+
+                <p style="font-family:sans-serif;font-size:14px;color: rgba(0,0,0,0.6)">
+                    {{res.resto_location}}</p>
+                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.9)">
+                     {{res.resto_speciality}}</p>
+                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.9)"> 
+                    {{res.resto_email}}</p> 
+                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.4)">
+                    posted
+                    by~{{res.resto_uploader}}</p>
+            
+            </div>
+            <br><br>
+
+            <!-- <div class="col-md-3"></div> -->
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

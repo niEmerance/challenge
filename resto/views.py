@@ -26,4 +26,8 @@ def new_restaurant(request):
 
     else:
         form = RestaurantForm()
-    return render(request, 'new_restaurant.html', {"form": form}
+    return render(request, 'new_restaurant.html', {"form": form})
+
+def restaurantDetails(request):
+    restaurant=Restaurant.objects.all()
+    return render(request,'restoDetails.html',{"restaurant":restaurant})

@@ -1,47 +1,22 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<h1>Restaurants Details</h1>
+{% block content %}
 
-<div style="padding-top: 20px;padding-left: 30px">
-    <div class="row">
-        {% for r in restaurants %}
-        <div>
+<div class="container">
 
-            <!-- <div class="col-md-3"></div> -->
-            <div class="col-md-6" style=" padding:10px">
-                <h2 style="font-family: serif; color:rgba(0,0,62,0.9);text-align: center">
-                        {{r.resto_name}}
-                </h2>
-                <a href="{{'new_restaurant'}}"><img src="{{r.resto_image.url}}" class="img-responsive" alt="" height=160px width=320px></a>
+  <div class="text-center w-50 rounded border border-primary bg-white mx-auto" style="margin-top: 50px">
+    <p class="border border-secondary bg-secondary text-white">Upload A Restaurant</p>
+    <form  action="{%url 'new_restaurant' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-secondary" value="Post">
+    </form>
+  </div>
 
-                <p style="font-family:sans-serif;font-size:14px;color: rgba(0,0,0,0.6)">
-                    {{r.resto_location}}</p>
-                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.9)"> {{r.resto_speciality}}</p>
-                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.9)"> {{r.resto_email}}</p> 
-                <p style="font-family:sans-serif;font-size:12px;font-style:italic;color: rgba(0,0,62,0.4)">posted
-                    by~{{r.resto_uploader}}</p>
-            
-            </div>
-            <br><br>
-
-            <!-- <div class="col-md-3"></div> -->
-        </div>
-
-        {% endfor %}
-    </div>
 </div>
 
 
 
-
-
-
-</body>
-</html>
+{% endblock %}

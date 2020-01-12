@@ -31,3 +31,16 @@ def new_restaurant(request):
 def restaurantDetails(request):
     restaurant=Restaurant.objects.all()
     return render(request,'restoDetails.html',{"restaurant":restaurant})
+
+def search_results(request):
+
+    if 'restaurant' in request.GET and request.GET["restaurant"]:
+        search_term = request.GET.get("restaurant")
+        searched_restaurants = Restaurant.search_by_location(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"restaurants": searched_restaurants})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})

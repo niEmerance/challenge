@@ -19,3 +19,7 @@ class Restaurant(models.Model):
 
     def save_Restaurant(self, user):
         self.save()
+    @classmethod
+    def search_by_location(cls,search_term):
+        restaurants = cls.objects.filter(resto_location__icontains=search_term)
+        return restaurants

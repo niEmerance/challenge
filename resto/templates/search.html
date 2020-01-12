@@ -72,30 +72,28 @@
           <!-- search form end -->
 </div>
 
-<div >
-    <div style="border-bottom: chocolate">
-    <h2 style="text-align: center; font-family: 'Poiret One', cursive; font-size: 40px;opacity: 0.8;"> Our Restaurants</h2>
-    </div>
-    <div class="restaurantsList">
-        {% for r in restaurants %}
-        <div style="border-block: 10px">
+<div class="container">
 
-            <!-- <div class="col-md-3"></div> -->
-            <div style=" padding:10px">
-                <h2 style="color:rgba(153, 104, 39, 0.9);padding-left: 100px">
-                        {{r.resto_name}}
-                </h2>
-                <a href="{% url 'restaurantDetails' %}"><img src="{{r.resto_image.url}}" class="img-responsive" alt="" height=160px width=300px></a>  
-            
-            </div>
-            <br><br>
-
-            <!-- <div class="col-md-3"></div> -->
+        <div class="row">
+          {% if restaurants %}
+            <h2>Found {{ restaurants|length }} of searched term {{message}}</h2>
+          {% else %}
+            <h2> Found 0 restaurants for the search term {{message}}</h2>
+          {% endif %}
+      
         </div>
-
-        {% endfor %}
-    </div>
-</div>
+      
+        <div class="row">
+      
+        {% if restaurants %}
+          {% for restaur in restaurants %}
+            <div class="col-sm-6 col-md-3">
+                <h1>{{restaur.resto_name}}</h1>
+            </div>
+          {% endfor %}
+        {% endif %}
+        </div>
+      </div>
 
 
 <footer>

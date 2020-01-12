@@ -12,6 +12,7 @@ class Restaurant(models.Model):
     resto_speciality= models.CharField(max_length =30)
     resto_image = models.ImageField(upload_to = 'photos/')
     resto_email = models.EmailField()
+    resto_uploader = models.CharField(max_length =30)
 
     def __str__(self):
         return self.resto_name

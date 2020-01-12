@@ -25,7 +25,22 @@
     font-family: 'Poiret One', cursive;
     font-size: 25px;
 }
-
+.restaurantsList{
+    display: flex;
+    flex-direction: row;
+    box-shadow: black;
+}
+.footer{
+    font-family: arial;
+    font-weight: normal;
+    background-color: rgba(0,0,0, 0.2);
+    color: rgba(22, 20, 20, 0.5);
+    text-align: center;
+    margin-top: -25px;
+  }
+.footer #content #social a{
+    color: rgba(0,0,0, 0.2);
+}
 </style>
 <body>
 <!-- <nav class="navbar navbar-inverse">
@@ -42,12 +57,15 @@
 </div>
 
 <div >
-    <div >
+    <div style="border-bottom: chocolate">
+    <h2 style="text-align: center; font-family: 'Poiret One', cursive; font-size: 40px;opacity: 0.8;"> Our Restaurants</h2>
+    </div>
+    <div class="restaurantsList">
         {% for r in restaurants %}
-        <div class="row">
+        <div style="border-block: 10px">
 
             <!-- <div class="col-md-3"></div> -->
-            <div class="col-md-6" style=" padding:10px">
+            <div style=" padding:10px">
                 <h2 style="color:rgba(153, 104, 39, 0.9);padding-left: 100px">
                         {{r.resto_name}}
                 </h2>
@@ -64,7 +82,28 @@
 </div>
 
 
-
+<footer>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="footer">
+          <div id="content">
+          
+            <div id="social">
+              <h4>Social Media</h4>
+              <a href="https://www.facebook.com/search/top/?q=Mechanical+Engineering" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-instagram"></a>
+            </div>
+            <div>
+              <h4>Leave a comment here:</h4>
+              <form>
+                <input type="text">
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+          <p id="copy">copyright &copy; 2019, NiEmerance.All rights reserved</p>
+        </div>
+</footer>
 
 
 

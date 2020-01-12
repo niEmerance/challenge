@@ -29,17 +29,18 @@
     display: flex;
     flex-direction: row;
     box-shadow: black;
+    padding-left: 100px
 }
 .footer{
     font-family: arial;
     font-weight: normal;
-    background-color: rgba(0,0,0, 0.2);
-    color: rgba(22, 20, 20, 0.5);
+    background-color: rgba(100, 58, 10, 0.6);
+    color: rgba(22, 20, 20, 0.8);
     text-align: center;
     margin-top: -25px;
   }
 .footer #content #social a{
-    color: rgba(0,0,0, 0.2);
+    color: rgba(0,0,0, 0.6);
 }
 </style>
 <body>
@@ -69,7 +70,7 @@
                 <h2 style="color:rgba(153, 104, 39, 0.9);padding-left: 100px">
                         {{r.resto_name}}
                 </h2>
-                <a href="{% url 'restaurantDetails' %}"><img src="{{r.resto_image.url}}" class="img-responsive" alt="" height=160px width=320px></a>  
+                <a href="{% url 'restaurantDetails' %}"><img src="{{r.resto_image.url}}" class="img-responsive" alt="" height=160px width=300px></a>  
             
             </div>
             <br><br>

@@ -29,7 +29,9 @@
     display: flex;
     flex-direction: row;
     box-shadow: black;
-    padding-left: 100px
+    /* padding-left: 40px; */
+    margin: 90px;
+    justify-content: space-between
 }
 .footer{
     font-family: arial;
@@ -37,7 +39,6 @@
     background-color: rgba(100, 58, 10, 0.6);
     color: rgba(22, 20, 20, 0.8);
     text-align: center;
-    margin-top: -25px;
   }
 .footer #content #social a{
     color: rgba(0,0,0, 0.6);
@@ -72,15 +73,15 @@
 
 <div >
     <div style="border-bottom: chocolate">
-    <h2 style="text-align: center; font-family: 'Poiret One', cursive; font-size: 40px;opacity: 0.8;"> Our Restaurants</h2>
+    <h2 style="text-align: center; font-family: 'Poiret One', cursive; font-size: 40px;opacity: 0.8; padding: 20px; "> Our Restaurants</h2>
     </div>
     <div class="restaurantsList">
         {% for r in restaurants %}
-        <div style="border-block: 10px">
+        <div style="border-block: 10px;box-shadow: 5px 5px 5px 5px ">
 
             <!-- <div class="col-md-3"></div> -->
             <div style=" padding:10px">
-                <h2 style="color:rgba(153, 104, 39, 0.9);padding-left: 100px">
+                <h2 style="color:rgba(153, 104, 39, 0.9);padding-left: 100px;font-family: 'Poiret One', cursive;">
                         {{r.resto_name}}
                 </h2>
                 <a href="{% url 'restaurantDetails' %}"><img src="{{r.resto_image.url}}" class="img-responsive" alt="" height=160px width=300px></a>  

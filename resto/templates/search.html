@@ -1,125 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
 </head>
 <style>
- @media screen and (min-width: 300px){
-    .home{
-        background: linear-gradient(
-            rgba(0,0,0, 0.5),
-            rgba(0,0,0, 0.5)),
-            url("https://images.unsplash.com/photo-1556742205-e10c9486e506?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 700px;
-        color: white;
+    @media screen and (min-width: 300px) {
+        .home {
+            background: linear-gradient(rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)),
+                url("https://images.unsplash.com/photo-1556742205-e10c9486e506?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 700px;
+            color: white;
+        }
     }
-}
-#hometext{
-    padding-top: 190px;
-    text-align: center;
-    font-family: 'Poiret One', cursive;
-    font-size: 25px;
-}
-.restaurantsList{
-    display: flex;
-    flex-direction: row;
-    box-shadow: black;
-    padding-left: 100px
-}
-.footer{
-    font-family: arial;
-    font-weight: normal;
-    background-color: rgba(100, 58, 10, 0.6);
-    color: rgba(22, 20, 20, 0.8);
-    text-align: center;
-    margin-top: -25px;
-  }
-.footer #content #social a{
-    color: rgba(0,0,0, 0.6);
-}
+
+    #hometext {
+        padding-top: 190px;
+        text-align: center;
+        font-family: 'Poiret One', cursive;
+        font-size: 25px;
+    }
+
+    .restaurantsList {
+        display: flex;
+        flex-direction: row;
+        box-shadow: black;
+        padding-left: 100px
+    }
+
+    .footer {
+        font-family: arial;
+        font-weight: normal;
+        background-color: rgba(100, 58, 10, 0.6);
+        color: rgba(22, 20, 20, 0.8);
+        text-align: center;
+        margin-top: -25px;
+    }
+
+    .footer #content #social a {
+        color: rgba(0, 0, 0, 0.6);
+    }
 </style>
+
 <body>
-<!-- <nav class="navbar navbar-inverse">
+    <!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="{% url 'welcome' %}">Restaurant</a>
     </div>
   </div>
 </nav> -->
-<div class="home">
-    <div id="hometext">
-        <h1>COME HUNGRY, lEAVE HAPPY !!</h1>
-    </div>
-    <!-- Adding a search form  -->
-    <div class="col-sm-4 col-md-4 navbar-right">
+    <div class="home">
+        <div id="hometext">
+            <h1>COME HUNGRY, lEAVE HAPPY !!</h1>
+        </div>
+        <!-- Adding a search form  -->
+        <div class="col-sm-4 col-md-4 navbar-right">
 
             <form class="navbar-form" role="search" action="{% url 'search_results' %}">
-    
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search a restaurant .." name="restaurant">
-                <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search a restaurant ..." name="restaurant" style="border-radius: 50px;margin-left:430px;margin-top: 30px;padding-left:120px;height:50px;padding-right:100px;font-size: 25px;font-family: 'Poiret One', cursive; color: black">
+            
                 </div>
-              </div>
-    
+
             </form>
-          </div>
-          <!-- search form end -->
-</div>
-
-<div class="container">
-
-        <div class="row">
-          {% if restaurants %}
-            <h2>Found {{ restaurants|length }} of searched term {{message}}</h2>
-          {% else %}
-            <h2> Found 0 restaurants for the search term {{message}}</h2>
-          {% endif %}
-      
         </div>
-      
+        <!-- search form end -->
+    </div>
+
+    <div class="container">
+
         <div class="row">
-      
-        {% if restaurants %}
-          {% for restaur in restaurants %}
+            {% if restaurants %}
+            <h2>Found {{ restaurants|length }} of searched term {{message}}</h2>
+            {% else %}
+            <h2> Found 0 restaurants for the search term {{message}}</h2>
+            {% endif %}
+
+        </div>
+
+        <div class="row">
+
+            {% if restaurants %}
+            {% for restaur in restaurants %}
             <div class="col-sm-6 col-md-3">
                 <h1>{{restaur.resto_name}}</h1>
+                <img src="{{restaur.resto_image.url}}" class="img-responsive" alt="" height=160px width=300px>
+                <h3>{{restaur.resto_location}}</h3>
             </div>
-          {% endfor %}
-        {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
-      </div>
+    </div>
 
 
-<footer>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <footer>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <div class="footer">
-          <div id="content">
-          
-            <div id="social">
-              <h4>Social Media</h4>
-              <a href="https://www.facebook.com/search/top/?q=Mechanical+Engineering" class="fa fa-facebook"></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-instagram"></a>
+            <div id="content">
+
+                <div id="social">
+                    <h4>Social Media</h4>
+                    <a href="https://www.facebook.com/search/top/?q=Mechanical+Engineering" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+                <div>
+                    <h4>Leave a comment here:</h4>
+                    <form>
+                        <input type="text">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
-            <div>
-              <h4>Leave a comment here:</h4>
-              <form>
-                <input type="text">
-                <input type="submit" value="Submit">
-              </form>
-            </div>
-          </div>
-          <p id="copy">copyright &copy; 2019, NiEmerance.All rights reserved</p>
+            <p id="copy">copyright &copy; 2019, NiEmerance.All rights reserved</p>
         </div>
-</footer>
+    </footer>
 
 
 
 </body>
+
 </html>
